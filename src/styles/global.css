@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+:root {
+  --primary-container: #f97316;
+  --inverse-on-surface: #ebf1ff;
+  --surface-container-lowest: #ffffff;
+  --background: #f9f9ff;
+  --secondary-fixed-dim: #c0c6db;
+  --surface-container-highest: #dce2f3;
+  --inverse-surface: #2a313d;
+  --on-primary-fixed: #341100;
+  --on-secondary-fixed-variant: #404758;
+  --on-error: #ffffff;
+  --surface: #f9f9ff;
+  --surface-tint: #9d4300;
+  --surface-container-low: #f0f3ff;
+  --primary-fixed: #ffdbca;
+  --inverse-primary: #ffb690;
+  --tertiary-container: #a09a91;
+  --on-tertiary-fixed: #1e1b15;
+  --primary: #9d4300;
+  --surface-variant: #dce2f3;
+  --on-primary-container: #582200;
+  --on-error-container: #93000a;
+  --surface-container-high: #e2e8f8;
+  --surface-container: #e7eefe;
+  --secondary-fixed: #dce2f7;
+  --outline-variant: #e0c0b1;
+  --error: #ba1a1a;
+  --on-tertiary: #ffffff;
+  --on-tertiary-container: #36322c;
+  --surface-dim: #d3daea;
+  --primary-fixed-dim: #ffb690;
+  --on-secondary: #ffffff;
+  --on-background: #151c27;
+  --surface-bright: #f9f9ff;
+  --tertiary: #625e56;
+  --secondary-container: #d9dff5;
+  --on-secondary-fixed: #141b2b;
+  --tertiary-fixed: #e9e1d8;
+  --on-primary: #ffffff;
+  --on-tertiary-fixed-variant: #4a463f;
+  --secondary: #575e70;
+  --error-container: #ffdad6;
+  --on-surface-variant: #584237;
+  --on-primary-fixed-variant: #783200;
+  --tertiary-fixed-dim: #ccc5bc;
+  --outline: #8c7164;
+  --on-secondary-container: #5c6274;
+  --on-surface: #151c27;
+
+  /* Font Families */
+  --font-body: 'DM Sans', sans-serif;
+  --font-headline: 'Bricolage Grotesque', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
