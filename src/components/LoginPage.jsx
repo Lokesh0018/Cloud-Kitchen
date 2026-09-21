@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/LoginPage.css';
 import '../styles/HeaderFooter.css';
 
@@ -277,10 +278,10 @@ const LoginPage = () => {
 
                 <div className="register-text">
                   New to Amber & Clove? 
-                  <a href="#" className="register-link">
+                  <Link to="/signup" className="register-link">
                     Create an account
                     <span className="material-symbols-outlined" style={{ fontSize: '16px', marginLeft: '2px' }}>chevron_right</span>
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="footer-strip">

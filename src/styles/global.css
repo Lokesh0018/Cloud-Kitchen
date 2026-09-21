@@ -53,6 +53,55 @@
   /* Font Families */
   --font-body: 'DM Sans', sans-serif;
   --font-headline: 'Bricolage Grotesque', sans-serif;
+
+  /* Border Radius */
+  --DEFAULT: 1rem;
+  --lg: 2rem;
+  --xl: 3rem;
+  --full: 9999px;
+
+  /* Spacing */
+  --margin: 1rem;
+  --space-xs: 0.25rem;
+  --space-lg: 1.5rem;
+  --gutter: 1.25rem;
+  --space-sm: 0.5rem;
+  --gutter-desktop: 1.75rem;
+  --margin-desktop: 2.5rem;
+  --space-xl: 2.5rem;
+  --space-md: 1rem;
+
+  /* Typography */
+  --body-sm-font: var(--font-body);
+  --body-sm-size: 13px;
+  --label-md-font: var(--font-body);
+  --label-md-size: 14px;
+  --label-md-weight: 600;
+  --body-lg-font: var(--font-body);
+  --body-lg-size: 18px;
+  --label-sm-font: var(--font-body);
+  --label-sm-size: 11px;
+  --label-sm-weight: 700;
+  --label-sm-letter-spacing: 0.05em;
+  --body-md-font: var(--font-body);
+  --body-md-size: 15px;
+  
+  --headline-xl-font: var(--font-headline);
+  --headline-xl-size: 40px;
+  --headline-xl-weight: 700;
+  --headline-xl-letter-spacing: -0.02em;
+  
+  --headline-lg-font: var(--font-headline);
+  --headline-lg-size: 32px;
+  --headline-lg-weight: 700;
+  
+  --headline-md-font: var(--font-headline);
+  --headline-md-size: 24px;
+  --headline-md-weight: 600;
+  
+  --headline-sm-font: var(--font-headline);
+  --headline-sm-size: 18px;
+  --headline-sm-weight: 600;
 }
 
 body {
