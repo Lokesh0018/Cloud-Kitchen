@@ -149,11 +149,12 @@ const LoginPage = () => {
                     </div>
                   </div>
 
-                  <div className="remember-me">
+                  <div className="remember-me" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <label className="checkbox-label">
                       <input type="checkbox" className="checkbox" defaultChecked />
                       <span className="checkbox-text">Remember me on this device</span>
                     </label>
+                    <Link to="/forgot-password" style={{ fontSize: '13px', color: 'var(--primary)', textDecoration: 'none', fontWeight: '600' }}>Forgot Password?</Link>
                   </div>
 
                   <button 

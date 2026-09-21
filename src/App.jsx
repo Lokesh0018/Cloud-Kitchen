@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
+import ForgotPasswordPage from './components/ForgotPasswordPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MenuPage from './components/MenuPage';
@@ -45,6 +46,7 @@ function App() {
         <Routes>
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/menu" element={<MenuPage onAddToCart={handleAddToCart} />} />
           <Route path="*" element={<Navigate to="/menu" replace />} />
         </Routes>
