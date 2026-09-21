@@ -4,28 +4,9 @@ import '../styles/LoginPage.css';
 import '../styles/HeaderFooter.css';
 
 const LoginPage = () => {
-  const [isOtpMode, setIsOtpMode] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
-
-  const handleOtpChange = (index, value) => {
-    const newOtp = [...otpValues];
-    newOtp[index] = value.slice(-1); // Only take last character
-    setOtpValues(newOtp);
-    
-    // Auto-advance
-    if (value && index < 5) {
-      document.getElementById(`otp-${index + 1}`)?.focus();
-    }
-  };
-
-  const handleOtpKeyDown = (index, e) => {
-    if (e.key === 'Backspace' && !otpValues[index] && index > 0) {
-      document.getElementById(`otp-${index - 1}`)?.focus();
-    }
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,49 +25,8 @@ const LoginPage = () => {
 
   return (
     <>
-      <header className="app-header">
-        <div className="header-content">
-          <div className="logo-section">
-            <img 
-              alt="Amber & Clove Logo" 
-              className="logo-img" 
-              src="https://lh3.googleusercontent.com/aida/AEtjO1XzuUR5T5GcOfK9_-SVBWnAITpqYgTLPZsPN7HK_Y389_6ULAlBlTwsXJvMnK9L2roKcgPUdJrD8E598KxfUWtp_SHowK35HlUrmx8yvAQ3MJAvqMRAczP6HUFtsFSodBW7EfkW8SVsBOehVrACYZZIG2kt6SWi_AvygDWBgQgiD2pzAXMIM4k26zkdZy2ektLxOE0jhqKFMG2OVSAiInPk5L0f10_72OAon-3JP3jSGwwvRexNnQgdc9A" 
-            />
-            <span className="logo-text">Amber & Clove</span>
-          </div>
-          
-          <nav className="main-nav">
-            <a href="#" className="nav-link">Home</a>
-            <a href="#" className="nav-link">Menu</a>
-            <a href="#" className="nav-link">About</a>
-            <a href="#" className="nav-link">Contact</a>
-            <a href="#" className="nav-link">Track Order</a>
-          </nav>
-          
-          <div className="nav-actions">
-            <button aria-label="Search menu items" className="icon-btn">
-              <span className="material-symbols-outlined">search</span>
-            </button>
-            <a href="#" aria-label="View shopping cart" className="icon-btn">
-              <span className="material-symbols-outlined">shopping_bag</span>
-              <span className="badge">3</span>
-            </a>
-            <a href="#" className="order-btn">Order Now</a>
-            <div style={{ paddingLeft: '0.25rem' }}>
-              <img 
-                alt="Profile" 
-                className="profile-pic" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbfTc6jOcpHXqdYuR6DbmlT0LfhBINTP9wzJB_0Gl5AJotq9cu62Ku-sWOR88kNc8WUqoKlE5FOyk-AztDZqHSi9Zjotq4w8y0WyerVx_iHYctwP2o0-VoBunlR9EseGZF8En9fH_NuMhNX_0N3UvquLoeP3WzZORvVifdtkzCAtAAMGb7Z65xI-9x2DlM3EYeUznG70ZFCGuUYahS5jJ3TyNeq-zngHeMk0vRHg3Gk1Bce3-rdzn2"
-              />
-            </div>
-          </div>
-        </div>
-      </header>
-
       <main className="login-page-container">
         <div className="login-content">
-          <div className="ambient-orb-1"></div>
-          <div className="ambient-orb-2"></div>
 
           <div className="login-grid">
             {/* Showcase Section */}
@@ -148,10 +88,6 @@ const LoginPage = () => {
             <div className="form-section">
               <div className="form-wrapper">
                 <div>
-                  <div className="form-eyebrow">
-                    <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>lock</span>
-                    Customer Portal
-                  </div>
                   <h2 className="form-title">Welcome Back, Foodie</h2>
                   <p className="form-subtitle">Sign in to access saved addresses, order history, and instant re-ordering.</p>
                 </div>
@@ -166,10 +102,6 @@ const LoginPage = () => {
                     </svg>
                     <span>Continue with Google</span>
                   </button>
-                  <button className="auth-btn" type="button" onClick={() => setIsOtpMode(!isOtpMode)}>
-                    <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '20px' }}>sms</span>
-                    <span>{isOtpMode ? 'Sign in with Password' : 'Sign in via Mobile OTP'}</span>
-                  </button>
                 </div>
 
                 <div className="divider">
@@ -179,66 +111,42 @@ const LoginPage = () => {
 
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
-                    <label className="form-label" htmlFor="identifier">Email or Mobile Number</label>
                     <div className="input-wrapper">
                       <span className="material-symbols-outlined input-icon">account_circle</span>
                       <input 
                         className="form-input" 
                         id="identifier" 
                         name="identifier" 
-                        placeholder="e.g. rahul@example.com or +91 98765 43210" 
+                        placeholder=" " 
                         required 
                         type="text" 
                       />
+                      <label className="form-label" htmlFor="identifier">Email or Mobile Number</label>
                     </div>
                   </div>
 
-                  <div className={`form-group ${isOtpMode ? 'hidden' : ''}`}>
-                    <div className="password-header">
-                      <label className="form-label" htmlFor="password" style={{ marginBottom: 0 }}>Password</label>
-                      <a href="#" className="forgot-link">Forgot password?</a>
-                    </div>
+                  <div className="form-group">
                     <div className="input-wrapper">
                       <span className="material-symbols-outlined input-icon">lock</span>
                       <input 
                         className="form-input" 
                         id="password" 
                         name="password" 
-                        placeholder="Enter your master password" 
-                        required={!isOtpMode} 
+                        placeholder=" " 
+                        required 
                         type={showPassword ? 'text' : 'password'} 
                         style={{ paddingRight: '3rem' }}
                       />
+                      <label className="form-label" htmlFor="password">Password</label>
                       <button 
                         type="button" 
                         className="toggle-pwd-btn"
                         onClick={() => setShowPassword(!showPassword)}
+                        aria-label={showPassword ? "Hide password" : "Show password"}
                       >
-                        <span className="material-symbols-outlined">{showPassword ? 'visibility_off' : 'visibility'}</span>
+                        <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>{showPassword ? 'visibility_off' : 'visibility'}</span>
                       </button>
                     </div>
-                  </div>
-
-                  <div className={`form-group ${!isOtpMode ? 'hidden' : ''}`}>
-                    <label className="form-label">6-Digit Verification Code</label>
-                    <div className="otp-inputs">
-                      {[0, 1, 2, 3, 4, 5].map((index) => (
-                        <input 
-                          key={index}
-                          id={`otp-${index}`}
-                          className="otp-input" 
-                          maxLength={1} 
-                          type="text"
-                          value={otpValues[index]}
-                          onChange={(e) => handleOtpChange(index, e.target.value)}
-                          onKeyDown={(e) => handleOtpKeyDown(index, e)}
-                        />
-                      ))}
-                    </div>
-                    <p className="otp-resend">
-                      <span>Code sent via SMS</span>
-                      <button type="button" className="otp-resend-btn">Resend in 0:42</button>
-                    </p>
                   </div>
 
                   <div className="remember-me">
@@ -269,7 +177,7 @@ const LoginPage = () => {
                       </>
                     ) : (
                       <>
-                        <span>{isOtpMode ? 'Verify & Sign In' : 'Sign In to Amber & Clove'}</span>
+                        <span>Sign In to Amber & Clove</span>
                         <span className="material-symbols-outlined">arrow_forward</span>
                       </>
                     )}
@@ -299,94 +207,6 @@ const LoginPage = () => {
           </div>
         </div>
       </main>
-
-      <footer className="app-footer">
-        <div className="footer-content">
-          <div className="footer-grid">
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <img 
-                  alt="Amber & Clove Logo" 
-                  style={{ height: '2rem', width: 'auto', objectFit: 'contain' }}
-                  src="https://lh3.googleusercontent.com/aida/AEtjO1XzuUR5T5GcOfK9_-SVBWnAITpqYgTLPZsPN7HK_Y389_6ULAlBlTwsXJvMnK9L2roKcgPUdJrD8E598KxfUWtp_SHowK35HlUrmx8yvAQ3MJAvqMRAczP6HUFtsFSodBW7EfkW8SVsBOehVrACYZZIG2kt6SWi_AvygDWBgQgiD2pzAXMIM4k26zkdZy2ektLxOE0jhqKFMG2OVSAiInPk5L0f10_72OAon-3JP3jSGwwvRexNnQgdc9A" 
-                />
-                <span className="footer-col-title" style={{ marginBottom: 0 }}>Amber & Clove</span>
-              </div>
-              <p className="footer-desc">
-                Crafting kinetic, chef-driven culinary experiences delivered fresh to your door from our state-of-the-art cloud kitchens.
-              </p>
-              <div className="social-links">
-                <a href="#" aria-label="Global Kitchen network" className="social-btn">
-                  <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>public</span>
-                </a>
-                <a href="#" aria-label="Customer support channel" className="social-btn">
-                  <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>chat</span>
-                </a>
-                <a href="#" aria-label="Direct communication channel" className="social-btn">
-                  <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>alternate_email</span>
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <div className="footer-col-title">Quick Links</div>
-              <ul className="footer-links">
-                <li><a href="#" className="footer-link">Chef's Curated Menu</a></li>
-                <li><a href="#" className="footer-link">My Order Cart</a></li>
-                <li><a href="#" className="footer-link">Real-Time Order Tracker</a></li>
-                <li><a href="#" className="footer-link">Our Culinary Standards</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <div className="footer-col-title">Dispatch Kitchen</div>
-              <div className="contact-info">
-                <p className="contact-item">
-                  <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '18px' }}>schedule</span>
-                  11:00 AM – 11:30 PM Everyday
-                </p>
-                <p className="contact-item">
-                  <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '18px' }}>pin_drop</span>
-                  44 Culinary District, Central Hub
-                </p>
-                <p className="contact-item">
-                  <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '18px' }}>call</span>
-                  +1 (800) 555-CLOVE
-                </p>
-                <p className="contact-item">
-                  <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '18px' }}>forum</span>
-                  WhatsApp: +1 (800) 555-2568
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <div className="footer-col-title">Live Telemetry</div>
-              <p className="footer-desc" style={{ marginBottom: '0.5rem' }}>
-                Average prep-to-dispatch latency is currently running below nominal targets.
-              </p>
-              <div className="telemetry-box">
-                <div className="telemetry-header">
-                  <span className="telemetry-label">Kitchen Load</span>
-                  <span className="telemetry-value">Optimal • 82%</span>
-                </div>
-                <div className="progress-bar-bg">
-                  <div className="progress-bar-fill"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="footer-bottom">
-            <div>© 2024 Amber & Clove Culinary Platform. All rights reserved.</div>
-            <div className="legal-links">
-              <a href="#" className="legal-link">Privacy Policy</a>
-              <a href="#" className="legal-link">Terms of Service</a>
-              <a href="#" className="legal-link">Kitchen Hygiene Certifications</a>
-            </div>
-          </div>
-        </div>
-      </footer>
 
       <style>{`
         @keyframes spin {

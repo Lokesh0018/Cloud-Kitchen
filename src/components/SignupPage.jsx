@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/SignupPage.css';
+import '../styles/LoginPage.css'; /* Share layout styles */
 import '../styles/HeaderFooter.css';
 
 const SignupPage = () => {
@@ -59,49 +60,6 @@ const SignupPage = () => {
 
   return (
     <>
-      <header className="app-header">
-        <div className="header-content">
-          <div className="logo-section">
-            <img 
-              alt="Amber & Clove Logo" 
-              className="logo-img" 
-              src="https://lh3.googleusercontent.com/aida/AEtjO1XzuUR5T5GcOfK9_-SVBWnAITpqYgTLPZsPN7HK_Y389_6ULAlBlTwsXJvMnK9L2roKcgPUdJrD8E598KxfUWtp_SHowK35HlUrmx8yvAQ3MJAvqMRAczP6HUFtsFSodBW7EfkW8SVsBOehVrACYZZIG2kt6SWi_AvygDWBgQgiD2pzAXMIM4k26zkdZy2ektLxOE0jhqKFMG2OVSAiInPk5L0f10_72OAon-3JP3jSGwwvRexNnQgdc9A" 
-            />
-            <span className="logo-text" style={{ display: 'none', '@media (minWidth: 640px)': { display: 'inline-block' } }}>
-              Amber & Clove
-            </span>
-          </div>
-          
-          <nav className="main-nav" style={{ display: 'none', '@media (minWidth: 1024px)': { display: 'flex' } }}>
-            <a href="#" className="nav-link">Home</a>
-            <a href="#" className="nav-link">Menu</a>
-            <a href="#" className="nav-link">About</a>
-            <a href="#" className="nav-link">Contact</a>
-            <a href="#" className="nav-link">Track Order</a>
-          </nav>
-          
-          <div className="nav-actions">
-            <button aria-label="Search menu items" className="icon-btn">
-              <span className="material-symbols-outlined">search</span>
-            </button>
-            <a href="#" aria-label="View shopping cart" className="icon-btn" style={{ position: 'relative' }}>
-              <span className="material-symbols-outlined">shopping_bag</span>
-              <span className="badge" style={{ position: 'absolute', top: '-4px', right: '-4px', backgroundColor: 'var(--primary)', color: 'var(--on-primary)', fontSize: '11px', width: '20px', height: '20px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>3</span>
-            </a>
-            <a href="#" className="order-btn" style={{ display: 'none', '@media (minWidth: 640px)': { display: 'inline-flex' } }}>
-              Order Now
-            </a>
-            <div style={{ paddingLeft: '0.25rem' }}>
-              <img 
-                alt="Profile" 
-                className="profile-pic" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbfTc6jOcpHXqdYuR6DbmlT0LfhBINTP9wzJB_0Gl5AJotq9cu62Ku-sWOR88kNc8WUqoKlE5FOyk-AztDZqHSi9Zjotq4w8y0WyerVx_iHYctwP2o0-VoBunlR9EseGZF8En9fH_NuMhNX_0N3UvquLoeP3WzZORvVifdtkzCAtAAMGb7Z65xI-9x2DlM3EYeUznG70ZFCGuUYahS5jJ3TyNeq-zngHeMk0vRHg3Gk1Bce3-rdzn2"
-              />
-            </div>
-          </div>
-        </div>
-      </header>
-
       <main className="signup-page-container">
         <section className="signup-content">
           <div className="signup-inner">
@@ -119,90 +77,65 @@ const SignupPage = () => {
             </div>
 
             {/* Main Split Grid */}
-            <div className="signup-grid">
+            <div className="login-grid">
               
               {/* Left Showcase Side */}
-              <div className="signup-showcase">
-                <div className="glow-element-1"></div>
-                <div className="glow-element-2"></div>
+              <div className="showcase-section">
+                <div className="showcase-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=2000&auto=format&fit=crop')" }}></div>
+                <div className="showcase-overlay"></div>
                 
-                <div className="showcase-content">
-                  <div className="promo-pill">
-                    <span style={{ fontSize: '1rem' }}>🎁</span>
-                    <span className="promo-text">FLAT 20% OFF ON YOUR FIRST 3 ORDERS</span>
-                    <span className="promo-code">FRESH20</span>
+                <div className="showcase-top">
+                  <div className="rating-tag">
+                    <span className="material-symbols-outlined" style={{ color: 'var(--primary-container)', fontSize: '18px', fontVariationSettings: "'FILL' 1" }}>star</span>
+                    <span className="rating-score">4.96</span>
+                    <span className="rating-count">(3,200+ foodies)</span>
                   </div>
-                  
-                  <h1 className="signup-headline">
-                    Join the <span className="highlight-text">Amber & Clove</span> Table
-                  </h1>
-                  <p className="signup-story">
-                    Step into high-velocity gourmet dining. Authentic earthen dum pots, kinetic telemetry tracking, and early access to weekend culinary experiments.
-                  </p>
-                  
-                  <div className="food-card">
-                    <img 
-                      className="food-img"
-                      alt="Nawabi Murg Zafraani Biryani" 
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnX3B7Sh8N5Cp1wziNDfhYmx7pMY7Stm0x-HRLNY6YlebSLQeMRc4izW_SM35-sBIrxDdftgO0fDh5WR9g3KN-9mvyHJoV7hkCDir-19ya-SiplDES0T9yDAiP1U0JtyW26tN-oELdkAH7_xEHspl3BnHfzkfz0Dv62HFTRf0f6i3LscC7RtNojYcODVBgxv9AUGlE5qTS3YCwgDJwHHyOJwGsb2v6hUms3rdvzh0IDtAs0Htahajt"
-                    />
-                    <div className="food-card-overlay"></div>
-                    
-                    <div className="sensor-pill">
-                      <span className="material-symbols-outlined" style={{ color: 'var(--primary-container)', fontSize: '18px' }}>thermostat</span>
-                      <span style={{ fontFamily: 'var(--label-sm-font)', fontSize: 'var(--label-sm-size)' }}>Thermal Dum Pot Seal: 91°C Active</span>
-                    </div>
-                    
-                    <div className="chef-badge">
-                      <div>
-                        <span className="dish-category">Signature Slow-Cook</span>
-                        <p className="dish-name">Nawabi Murg Zafraani Biryani</p>
-                      </div>
-                      <div className="dish-rating">
-                        <span className="material-symbols-outlined" style={{ color: 'var(--primary-container)', fontSize: '16px', fontVariationSettings: "'FILL' 1" }}>star</span>
-                        <span style={{ fontWeight: 'bold' }}>4.96</span>
-                        <span style={{ color: 'var(--on-surface-variant)', fontWeight: 'normal', fontSize: 'var(--body-sm-size)' }}>(3.2k)</span>
-                      </div>
-                    </div>
+                  <div className="live-tag" style={{ display: 'inline-flex' }}>
+                    <span className="live-indicator"></span>
+                    Live Onboarding
                   </div>
                 </div>
-                
-                {/* Value Propositions Matrix */}
-                <div className="value-matrix">
-                  <div className="value-card">
-                    <div className="value-icon-wrapper" style={{ backgroundColor: 'var(--primary-fixed)', color: 'var(--primary)' }}>
-                      <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>skillet</span>
-                    </div>
-                    <div>
-                      <p className="value-title">Dum Handi Guarantee</p>
-                      <p className="value-desc">Slow-fired in earthen clay upon ticket confirmation.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="value-card">
-                    <div className="value-icon-wrapper" style={{ backgroundColor: 'var(--secondary-container)', color: 'var(--secondary)' }}>
-                      <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>radar</span>
-                    </div>
-                    <div>
-                      <p className="value-title">Live Telemetry</p>
-                      <p className="value-desc">Real-time KDS line cook & dispatch temperature metrics.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="value-card">
-                    <div className="value-icon-wrapper" style={{ backgroundColor: 'var(--tertiary-fixed)', color: 'var(--tertiary)' }}>
-                      <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>lock_open</span>
-                    </div>
-                    <div>
-                      <p className="value-title">Curated Secret Menu</p>
-                      <p className="value-desc">Weekend tasting flights & reserved small-batch curries.</p>
-                    </div>
+
+                <div className="showcase-center">
+                  <span className="eyebrow">FLAT 20% OFF ON FIRST 3 ORDERS</span>
+                  <h1 className="showcase-title">Join the Amber & Clove Table</h1>
+                  <p className="showcase-desc">
+                    Step into high-velocity gourmet dining. Authentic earthen dum pots, kinetic telemetry tracking, and early access to weekend culinary experiments.
+                  </p>
+                  <ul className="feature-list">
+                    <li className="feature-item">
+                      <span className="feature-icon-wrapper">
+                        <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>skillet</span>
+                      </span>
+                      <span>Dum Handi Guarantee: Slow-fired in earthen clay</span>
+                    </li>
+                    <li className="feature-item">
+                      <span className="feature-icon-wrapper">
+                        <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>radar</span>
+                      </span>
+                      <span>Live Telemetry: KDS line cook & temperature metrics</span>
+                    </li>
+                    <li className="feature-item">
+                      <span className="feature-icon-wrapper">
+                        <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>lock_open</span>
+                      </span>
+                      <span>Curated Secret Menu: Weekend tasting flights</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="showcase-bottom">
+                  <div className="testimonial">
+                    <span className="material-symbols-outlined" style={{ color: 'var(--primary-fixed)', fontSize: '22px' }}>verified_user</span>
+                    <p className="testimonial-text">
+                      "End-to-End Encrypted Verification for all new members."
+                    </p>
                   </div>
                 </div>
               </div>
               
               {/* Right Registration Form Side */}
-              <div className="signup-form-side">
+              <div className="form-section">
                 <div>
                   <div style={{ marginBottom: 'var(--space-md)' }}>
                     <div className="form-eyebrow-wrapper">
@@ -232,101 +165,91 @@ const SignupPage = () => {
 
                   <form className="signup-form" onSubmit={handleSubmit}>
                     
-                    {/* Full Name */}
-                    <div className="input-group">
-                      <label className="input-label" htmlFor="fullName">Full Name</label>
-                      <div className="input-relative">
-                        <span className="material-symbols-outlined input-icon-left">person</span>
-                        <input 
-                          className="signup-input" 
-                          id="fullName"
-                          name="fullName"
-                          placeholder="e.g. Rahul Verma" 
-                          required 
-                          type="text"
-                          value={formData.fullName}
-                          onChange={handleChange}
-                        />
+                    <div style={{ display: 'flex', gap: '1rem' }}>
+                      {/* Full Name */}
+                      <div className="form-group" style={{ flex: 1, marginBottom: '1rem' }}>
+                        <div className="input-wrapper">
+                          <span className="material-symbols-outlined input-icon">person</span>
+                          <input 
+                            className="form-input" 
+                            id="fullName"
+                            name="fullName"
+                            placeholder=" " 
+                            required 
+                            type="text"
+                            value={formData.fullName}
+                            onChange={handleChange}
+                          />
+                          <label className="form-label" htmlFor="fullName">Full Name</label>
+                        </div>
+                      </div>
+
+                      {/* Email */}
+                      <div className="form-group" style={{ flex: 1, marginBottom: '1rem' }}>
+                        <div className="input-wrapper">
+                          <span className="material-symbols-outlined input-icon">mail</span>
+                          <input 
+                            className="form-input" 
+                            id="email"
+                            name="email"
+                            placeholder=" " 
+                            required 
+                            type="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                          />
+                          <label className="form-label" htmlFor="email">Email Address</label>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Mobile Number */}
-                    <div className="input-group">
-                      <div className="input-label-row">
-                        <label className="input-label" htmlFor="mobile" style={{ marginBottom: 0 }}>Mobile Number</label>
-                        <span className="input-label-hint">
-                          <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>sms</span>
-                          OTP verification on next step
-                        </span>
-                      </div>
-                      <div className="phone-input-row">
-                        <div className="country-code-pill">
-                          <span style={{ fontSize: '1rem' }}>🇮🇳</span>
-                          <span>+91</span>
-                        </div>
-                        <div className="input-relative">
-                          <span className="material-symbols-outlined input-icon-left">call</span>
+                    <div style={{ display: 'flex', gap: '1rem' }}>
+                      {/* Mobile Number */}
+                      <div className="form-group" style={{ flex: 1, marginBottom: '1rem' }}>
+                        <div className="input-wrapper">
+                          <span className="material-symbols-outlined input-icon">call</span>
                           <input 
-                            className="signup-input" 
+                            className="form-input" 
                             id="mobile"
                             name="mobile"
                             maxLength="10" 
-                            placeholder="98765 43210" 
+                            placeholder=" " 
                             required 
                             type="tel"
                             value={formData.mobile}
                             onChange={handleChange}
                           />
+                          <label className="form-label" htmlFor="mobile">Mobile No. (+91)</label>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Email Address */}
-                    <div className="input-group">
-                      <label className="input-label" htmlFor="email">Email Address</label>
-                      <div className="input-relative">
-                        <span className="material-symbols-outlined input-icon-left">alternate_email</span>
-                        <input 
-                          className="signup-input" 
-                          id="email"
-                          name="email"
-                          placeholder="name@example.com" 
-                          required 
-                          type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Create Password with strength */}
-                    <div className="input-group">
-                      <div className="input-label-row">
-                        <label className="input-label" htmlFor="password" style={{ marginBottom: 0 }}>Create Password</label>
-                        <span className={`pwd-strength-pill ${passwordStrength.class}`}>
-                          {passwordStrength.text}
-                        </span>
-                      </div>
-                      <div className="input-relative">
-                        <span className="material-symbols-outlined input-icon-left">lock</span>
-                        <input 
-                          className="signup-input" 
-                          id="password" 
-                          placeholder="••••••••" 
-                          required 
-                          type={showPassword ? 'text' : 'password'}
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <button 
-                          className="pwd-toggle-btn" 
-                          type="button"
-                          onClick={() => setShowPassword(!showPassword)}
-                        >
-                          <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>
-                            {showPassword ? 'visibility_off' : 'visibility'}
-                          </span>
-                        </button>
+                      {/* Create Password */}
+                      <div className="form-group" style={{ flex: 1, marginBottom: '1rem' }}>
+                        <div className="input-wrapper">
+                          <span className="material-symbols-outlined input-icon">lock</span>
+                          <input 
+                            className="form-input" 
+                            type={showPassword ? "text" : "password"} 
+                            id="password" 
+                            name="password" 
+                            value={password} 
+                            onChange={(e) => setPassword(e.target.value)} 
+                            placeholder=" " 
+                            required 
+                            style={{ paddingRight: '3rem' }}
+                          />
+                          <label className="form-label" htmlFor="password">Password (8+ chars)</label>
+                          <button 
+                            type="button" 
+                            className="toggle-pwd-btn" 
+                            onClick={() => setShowPassword(!showPassword)}
+                            aria-label={showPassword ? "Hide password" : "Show password"}
+                          >
+                            <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>
+                              {showPassword ? 'visibility_off' : 'visibility'}
+                            </span>
+                          </button>
+                        </div>
                       </div>
                     </div>
 
@@ -367,7 +290,7 @@ const SignupPage = () => {
                     <div className="checkbox-group">
                       <label className="checkbox-label">
                         <input 
-                          className="signup-checkbox" 
+                          className="checkbox" 
                           required 
                           type="checkbox"
                           name="agreedToTos"
@@ -376,19 +299,6 @@ const SignupPage = () => {
                         />
                         <span className="checkbox-text">
                           I agree to Amber & Clove's <a className="checkbox-link" href="#">Terms of Service</a> & <a className="checkbox-link" href="#">Privacy Policy</a>.
-                        </span>
-                      </label>
-                      <label className="checkbox-label">
-                        <input 
-                          className="signup-checkbox" 
-                          type="checkbox"
-                          name="marketingOptIn"
-                          checked={formData.marketingOptIn}
-                          onChange={handleChange}
-                        />
-                        <span className="checkbox-text" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                          <span>Send me mouth-watering weekend specials and cooking updates via WhatsApp</span>
-                          <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '16px' }}>chat</span>
                         </span>
                       </label>
                     </div>
@@ -468,94 +378,6 @@ const SignupPage = () => {
           </div>
         </section>
       </main>
-
-      <footer className="app-footer">
-        <div className="footer-content">
-          <div className="footer-grid">
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <img 
-                  alt="Amber & Clove Logo" 
-                  style={{ height: '2rem', width: 'auto', objectFit: 'contain' }}
-                  src="https://lh3.googleusercontent.com/aida/AEtjO1XzuUR5T5GcOfK9_-SVBWnAITpqYgTLPZsPN7HK_Y389_6ULAlBlTwsXJvMnK9L2roKcgPUdJrD8E598KxfUWtp_SHowK35HlUrmx8yvAQ3MJAvqMRAczP6HUFtsFSodBW7EfkW8SVsBOehVrACYZZIG2kt6SWi_AvygDWBgQgiD2pzAXMIM4k26zkdZy2ektLxOE0jhqKFMG2OVSAiInPk5L0f10_72OAon-3JP3jSGwwvRexNnQgdc9A" 
-                />
-                <span className="footer-col-title" style={{ marginBottom: 0 }}>Amber & Clove</span>
-              </div>
-              <p className="footer-desc">
-                Crafting kinetic, chef-driven culinary experiences delivered fresh to your door from our state-of-the-art cloud kitchens.
-              </p>
-              <div className="social-links">
-                <a href="#" aria-label="Global Kitchen network" className="social-btn">
-                  <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>public</span>
-                </a>
-                <a href="#" aria-label="Customer support channel" className="social-btn">
-                  <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>chat</span>
-                </a>
-                <a href="#" aria-label="Direct communication channel" className="social-btn">
-                  <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>alternate_email</span>
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <div className="footer-col-title">Quick Links</div>
-              <ul className="footer-links">
-                <li><a href="#" className="footer-link">Chef's Curated Menu</a></li>
-                <li><a href="#" className="footer-link">My Order Cart</a></li>
-                <li><a href="#" className="footer-link">Real-Time Order Tracker</a></li>
-                <li><a href="#" className="footer-link">Our Culinary Standards</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <div className="footer-col-title">Dispatch Kitchen</div>
-              <div className="contact-info">
-                <p className="contact-item">
-                  <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '18px' }}>schedule</span>
-                  11:00 AM – 11:30 PM Everyday
-                </p>
-                <p className="contact-item">
-                  <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '18px' }}>pin_drop</span>
-                  44 Culinary District, Central Hub
-                </p>
-                <p className="contact-item">
-                  <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '18px' }}>call</span>
-                  +1 (800) 555-CLOVE
-                </p>
-                <p className="contact-item">
-                  <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: '18px' }}>forum</span>
-                  WhatsApp: +1 (800) 555-2568
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <div className="footer-col-title">Live Telemetry</div>
-              <p className="footer-desc" style={{ marginBottom: '0.5rem' }}>
-                Average prep-to-dispatch latency is currently running below nominal targets.
-              </p>
-              <div className="telemetry-box">
-                <div className="telemetry-header">
-                  <span className="telemetry-label">Kitchen Load</span>
-                  <span className="telemetry-value">Optimal • 82%</span>
-                </div>
-                <div className="progress-bar-bg">
-                  <div className="progress-bar-fill"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="footer-bottom">
-            <div>© 2024 Amber & Clove Culinary Platform. All rights reserved.</div>
-            <div className="legal-links">
-              <a href="#" className="legal-link">Privacy Policy</a>
-              <a href="#" className="legal-link">Terms of Service</a>
-              <a href="#" className="legal-link">Kitchen Hygiene Certifications</a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 };

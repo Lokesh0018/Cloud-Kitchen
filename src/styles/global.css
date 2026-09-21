@@ -89,20 +89,24 @@
   --headline-xl-font: var(--font-headline);
   --headline-xl-size: 40px;
   --headline-xl-weight: 700;
-  --headline-xl-letter-spacing: -0.02em;
+  --headline-xl-letter-spacing: -0.03em;
   
   --headline-lg-font: var(--font-headline);
   --headline-lg-size: 32px;
   --headline-lg-weight: 700;
+  --headline-lg-letter-spacing: -0.02em;
   
   --headline-md-font: var(--font-headline);
   --headline-md-size: 24px;
   --headline-md-weight: 600;
+  --headline-md-letter-spacing: -0.015em;
   
   --headline-sm-font: var(--font-headline);
   --headline-sm-size: 18px;
   --headline-sm-weight: 600;
+  --headline-sm-letter-spacing: -0.01em;
 }
+
 
 body {
   margin: 0;
@@ -125,4 +129,32 @@ button {
   border: none;
   cursor: pointer;
   font-family: inherit;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0) scale(1.05);
+  }
+  50% {
+    transform: translateY(20px) scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
+  }
 }

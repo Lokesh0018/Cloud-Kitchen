@@ -1,15 +1,39 @@
 .signup-page-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding-top: 5rem;
+  padding-top: 80px; /* Header offset */
+  padding-bottom: 3rem;
+  min-height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1495195134817-a165d55ca201?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   background-color: var(--surface);
+  position: relative;
+}
+
+.signup-page-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 0;
 }
 
 .signup-content {
-  position: relative;
   width: 100%;
-  overflow: hidden;
-  padding: var(--space-md) 0;
+  max-width: 1280px;
+  margin: 2rem auto;
+  padding: 1.5rem 1.25rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
+
+
 
 @media (min-width: 768px) {
   .signup-content {
@@ -123,6 +147,7 @@
   background-color: rgba(249, 115, 22, 0.1);
   filter: blur(24px);
   pointer-events: none;
+  animation: float 15s ease-in-out infinite;
 }
 
 .glow-element-2 {
@@ -135,6 +160,7 @@
   background-color: rgba(220, 226, 243, 0.4);
   filter: blur(16px);
   pointer-events: none;
+  animation: float-reverse 18s ease-in-out infinite;
 }
 
 .showcase-content {
@@ -229,15 +255,17 @@
   position: absolute;
   top: var(--space-md);
   left: var(--space-md);
-  background-color: rgba(42, 49, 61, 0.85);
-  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   padding: var(--space-xs) var(--space-md);
   border-radius: var(--full);
   display: flex;
   align-items: center;
   gap: var(--space-xs);
-  color: var(--inverse-on-surface);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  color: var(--on-surface);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .chef-badge {
@@ -303,14 +331,23 @@
 }
 
 .value-card {
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   padding: var(--space-md);
   border-radius: var(--DEFAULT);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .value-icon-wrapper {
@@ -341,13 +378,14 @@
 
 .signup-form-side {
   border-radius: var(--lg);
-  background-color: var(--surface-container-lowest);
-  padding: var(--space-md);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255,255,255,0.3) inset;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 1024px) {
@@ -407,6 +445,7 @@
   justify-content: center;
   gap: var(--space-sm);
   transition: all 0.2s;
+  will-change: transform;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   border: none;
   cursor: pointer;
@@ -415,10 +454,12 @@
 
 .social-signup-btn:hover {
   background-color: var(--surface-container);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .social-signup-btn:active {
-  transform: scale(0.99);
+  transform: translateY(0) scale(0.98);
 }
 
 .signup-divider {
@@ -455,6 +496,35 @@
 .input-group {
   display: flex;
   flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-label {
+  position: absolute;
+  left: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  color: var(--on-surface-variant);
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+  background-color: transparent;
+  padding: 0 0.25rem;
+  z-index: 1;
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label {
+  top: -0.5rem;
+  left: 1rem;
+  font-size: 12px;
+  color: var(--primary);
+  background-color: var(--surface-container-lowest);
+  font-weight: 600;
 }
 
 .input-label {
@@ -518,7 +588,8 @@
 .signup-input:focus {
   outline: none;
   background-color: var(--surface-container-lowest);
-  box-shadow: 0 0 0 2px var(--primary-container);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
 }
 
 .phone-input-row {
@@ -682,16 +753,18 @@
   cursor: pointer;
   box-shadow: 0 8px 24px -4px rgba(249, 115, 22, 0.4);
   transition: all 0.2s;
+  will-change: transform;
   margin-top: 0.5rem;
 }
 
 .signup-submit-btn:hover {
   background-color: var(--primary);
-  transform: scale(1.01);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.5);
 }
 
 .signup-submit-btn:active {
-  transform: scale(0.99);
+  transform: translateY(0) scale(0.98);
 }
 
 .bottom-links {
