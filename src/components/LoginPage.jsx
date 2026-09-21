@@ -178,7 +178,7 @@ const LoginPage = () => {
                       </>
                     ) : (
                       <>
-                        <span>Sign In to Amber & Clove</span>
+                        <span>Sign In to Cloud Kitchen</span>
                         <span className="material-symbols-outlined">arrow_forward</span>
                       </>
                     )}
@@ -186,7 +186,7 @@ const LoginPage = () => {
                 </form>
 
                 <div className="register-text">
-                  New to Amber & Clove? 
+                  New to Cloud Kitchen? 
                   <Link to="/signup" className="register-link">
                     Create an account
                     <span className="material-symbols-outlined" style={{ fontSize: '16px', marginLeft: '2px' }}>chevron_right</span>

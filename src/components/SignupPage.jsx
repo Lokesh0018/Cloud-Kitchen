@@ -98,7 +98,7 @@ const SignupPage = () => {
 
                 <div className="showcase-center">
                   <span className="eyebrow">FLAT 20% OFF ON FIRST 3 ORDERS</span>
-                  <h1 className="showcase-title">Join the Amber & Clove Table</h1>
+                  <h1 className="showcase-title">Join the Cloud Kitchen Table</h1>
                   <p className="showcase-desc">
                     Step into high-velocity gourmet dining. Authentic earthen dum pots, kinetic telemetry tracking, and early access to weekend culinary experiments.
                   </p>
@@ -298,7 +298,7 @@ const SignupPage = () => {
                           onChange={handleChange}
                         />
                         <span className="checkbox-text">
-                          I agree to Amber & Clove's <a className="checkbox-link" href="#">Terms of Service</a> & <a className="checkbox-link" href="#">Privacy Policy</a>.
+                          I agree to Cloud Kitchen <a className="checkbox-link" href="#">Terms of Service</a> & <a className="checkbox-link" href="#">Privacy Policy</a>.
                         </span>
                       </label>
                     </div>

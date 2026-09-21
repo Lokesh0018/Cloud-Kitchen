@@ -9,11 +9,11 @@ const Footer = () => {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
               <img 
-                alt="Amber & Clove Logo" 
+                alt="Cloud Kitchen" 
                 style={{ height: '2rem', width: 'auto', objectFit: 'contain' }}
                 src="https://lh3.googleusercontent.com/aida/AEtjO1XzuUR5T5GcOfK9_-SVBWnAITpqYgTLPZsPN7HK_Y389_6ULAlBlTwsXJvMnK9L2roKcgPUdJrD8E598KxfUWtp_SHowK35HlUrmx8yvAQ3MJAvqMRAczP6HUFtsFSodBW7EfkW8SVsBOehVrACYZZIG2kt6SWi_AvygDWBgQgiD2pzAXMIM4k26zkdZy2ektLxOE0jhqKFMG2OVSAiInPk5L0f10_72OAon-3JP3jSGwwvRexNnQgdc9A" 
               />
-              <span className="footer-col-title" style={{ marginBottom: 0 }}>Amber & Clove</span>
+              <span className="footer-col-title" style={{ marginBottom: 0 }}>Cloud Kitchen</span>
             </div>
             <p className="footer-desc">
               Crafting kinetic, chef-driven culinary experiences delivered fresh to your door from our state-of-the-art cloud kitchens.
@@ -81,7 +81,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <div>© 2024 Amber & Clove Culinary Platform. All rights reserved.</div>
+          <div>© 2024 Cloud Kitchen Platform. All rights reserved.</div>
           <div className="legal-links">
             <a href="#" className="legal-link">Privacy Policy</a>
             <a href="#" className="legal-link">Terms of Service</a>
