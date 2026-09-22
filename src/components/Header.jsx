@@ -1,10 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../styles/HeaderFooter.css';
 
-const Header = ({ cartItemCount, onOpenCart }) => {
+const Header = ({ cartItemCount, onOpenCart, onOpenOrderModal }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const searchInputRef = useRef(null);
+
+  const handleSearchClick = () => {
+    if (!isSearchActive) {
+      setIsSearchActive(true);
+      setTimeout(() => {
+        if (searchInputRef.current) searchInputRef.current.focus();
+      }, 100);
+    }
+  };
+
+  const handleCloseSearch = (e) => {
+    e.stopPropagation();
+    setIsSearchActive(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,14 +58,31 @@ const Header = ({ cartItemCount, onOpenCart }) => {
           </nav>
           
           <div className="nav-actions">
-            <button aria-label="Search menu items" className="icon-btn">
-              <span className="material-symbols-outlined" aria-hidden="true">search</span>
-            </button>
+            <div className={`search-bar-container ${isSearchActive ? 'active' : ''}`} onClick={handleSearchClick}>
+              <button aria-label="Search menu items" className="icon-btn search-trigger-btn">
+                <span className="material-symbols-outlined" aria-hidden="true">search</span>
+              </button>
+              <input 
+                ref={searchInputRef}
+                type="text" 
+                className="search-input" 
+                placeholder="Search menu..." 
+                tabIndex={isSearchActive ? 0 : -1}
+              />
+              <button 
+                aria-label="Close search" 
+                className="icon-btn close-search-btn" 
+                onClick={handleCloseSearch}
+                tabIndex={isSearchActive ? 0 : -1}
+              >
+                <span className="material-symbols-outlined" aria-hidden="true">close</span>
+              </button>
+            </div>
             <button aria-label="View shopping cart" className="icon-btn" onClick={onOpenCart}>
               <span className="material-symbols-outlined" aria-hidden="true">shopping_bag</span>
               {cartItemCount > 0 && <span className="badge">{cartItemCount}</span>}
             </button>
-            <Link to="/menu" className="order-btn" style={{ textDecoration: 'none' }}>Order Now</Link>
+            <button onClick={onOpenOrderModal} className="order-btn" style={{ textDecoration: 'none', cursor: 'pointer' }}>Order Now</button>
             <div style={{ paddingLeft: '0.25rem' }}>
               <Link to="/login">
                 <img 
